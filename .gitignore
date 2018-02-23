@@ -1,0 +1,33 @@
+# Ignoring Art WIP
+# Blows up the git repo otherwise
+Art/
+# If you want to use some custom Plugins
+# it won't mess up other people's set ups
+Plugins/
+Plugin/
+
+# Created by unity
+Temp/
+Library/
+
+# Created by Visual Studio
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+
+# OS generated #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
