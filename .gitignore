@@ -2,6 +2,7 @@
 # Blows up the git repo otherwise
 # Art folder is actually a file
 Art
+Art.meta
 
 # If you want to use some custom Plugins
 # it won't mess up other people's set ups
@@ -33,3 +34,6 @@ obj/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Editor Generated
+.vs/
