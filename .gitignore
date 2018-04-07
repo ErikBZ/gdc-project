@@ -1,6 +1,8 @@
 # Ignoring Art WIP
 # Blows up the git repo otherwise
-Art/
+# Art folder is actually a file
+Art
+
 # If you want to use some custom Plugins
 # it won't mess up other people's set ups
 Plugins/
