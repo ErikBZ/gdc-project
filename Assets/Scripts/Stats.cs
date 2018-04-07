@@ -30,12 +30,15 @@ public class Stats : MonoBehaviour {
 	public int secID = 0;
 	//A boolean for whether something is two-handed or not. False if not.
 	public bool dualWeapons = false;
+
 	//Defines slots for items
+	// this could just be an array
 	public int slot1 = 0;
 	public int slot2 = 0;
 	public int slot3 = 0;
 	public int slot4 = 0;
 	public int slot5 = 0;
+
 	//GUI text
 	public Text HPText;
 	public Text weaponText;
@@ -45,7 +48,8 @@ public class Stats : MonoBehaviour {
 	public Text itemText;
 
 	//This activates when the script loads.
-	void Start(){
+	void Start()
+	{
 		//Creates the ugly GUI text
 		HPText.text = "HP: " + HP + "/" + MHP;
 		staminaText.text = "Stamina: " + STA;
@@ -53,11 +57,15 @@ public class Stats : MonoBehaviour {
 		//Sets the damage to the current attack power
 		DAMAGE = ATK;
 		//Starts the background management of the states
-		StartCoroutine (manageStates ());
+		StartCoroutine (ManageStates ());
 	}
+
 	// Update is called once per frame
-	void Update () {
-		if (maskID == 0) {
+	void Update ()
+	{
+		// this should be a switch too
+		if (maskID == 0)
+		{
 			//No mask equipted when 0
 			maskText.text = "Mask: Nothing";
 		} else if (maskID == 1) {
@@ -91,25 +99,38 @@ public class Stats : MonoBehaviour {
 		HPText.text = "HP: " + HP + "/" + MHP;
 		staminaText.text = "Stamina: " + STA;
 	}
-	IEnumerator manageStates(){
-		while (true){
+	
+	// Methods should follow Pascal case
+	IEnumerator ManageStates()
+	{
+		while (true)
+		{
 			yield return new WaitForSeconds(1);
-
-			if (state == "VENOM") {
+			
+			// just use a switch with an Enum here 
+			// IE Status.Poisoned, Status.None, Status.Whatever
+			if (state == "VENOM")
+			{
 				//Poisoned
 				yield return new WaitForSeconds (1);
 				HP = HP - 2;
 				stateTime = stateTime - 1;
-				if (stateTime == 0) {
+
+				if (stateTime == 0)
+				{
 					state = "N/A";
 					stateTime = 10;
 				}
-			} else if(state == "ATK UP"){
+			}
+			else if(state == "ATK UP")
+			{
 				//Attack buff
 				yield return new WaitForSeconds (1);
 				DAMAGE = ATK * 2;
 				stateTime = stateTime - 1;
-				if (stateTime == 0){
+
+				if (stateTime == 0)
+				{
 					state = "N/A";
 					stateTime = 10;
 				}
